@@ -6,10 +6,10 @@ import java.util.Map;
 import chapter2.agent_AB.Environment.LocationState;
 
 public class EnvironmentState {
-	private Map<String, Environment.LocationState> state = new HashMap<String, Environment.LocationState>();
+	private Map<String, LocationState> state = new HashMap<String, LocationState>();
 	private String agentLocation = null;//
 
-	public EnvironmentState(Environment.LocationState locAState, Environment.LocationState locBState) {
+	public EnvironmentState(LocationState locAState, LocationState locBState) {
 		this.state.put(Environment.LOCATION_A, locAState);
 		this.state.put(Environment.LOCATION_B, locBState);
 	}
