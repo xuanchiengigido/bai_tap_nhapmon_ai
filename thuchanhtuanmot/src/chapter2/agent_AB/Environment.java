@@ -36,9 +36,9 @@ public class Environment {
         // TODO
         if (action == Environment.SUCK_DIRT) {
             envState.setLocationState(this.envState.getAgentLocation(), LocationState.CLEAN);
-        } else if (action == Environment.MOVE_RIGHT){
+        } else if (action == Environment.MOVE_RIGHT) {
             envState.setAgentLocation(Environment.LOCATION_B);
-        } else if (action == Environment.MOVE_LEFT){
+        } else if (action == Environment.MOVE_LEFT) {
             envState.setAgentLocation(Environment.LOCATION_A);
         }
         return envState;

@@ -7,11 +7,9 @@ public class AgentProgram {
 
         if (p.getLocationState() == Environment.LocationState.DIRTY) {
             return Environment.SUCK_DIRT;
-        } else if (p.getLocationState() == Environment.LocationState.CLEAN &&
-                p.getAgentLocation() == Environment.LOCATION_A) {
+        } else if (p.getAgentLocation() == Environment.LOCATION_A) {
             return Environment.MOVE_RIGHT;
-        } else if (p.getLocationState() == Environment.LocationState.CLEAN &&
-                p.getAgentLocation() == Environment.LOCATION_B) {
+        } else if (p.getAgentLocation() == Environment.LOCATION_B) {
             return Environment.MOVE_LEFT;
         }
         return NoOpAction.NO_OP;

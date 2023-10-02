@@ -1,11 +1,15 @@
 package chapter2.agent_AB;
 
 public class Environment {
+    public static final Action MOVE_UP = new DynamicAction("UP");
+    public static final Action MOVE_DOWN = new DynamicAction("DOWN");
     public static final Action MOVE_LEFT = new DynamicAction("LEFT");
     public static final Action MOVE_RIGHT = new DynamicAction("RIGHT");
     public static final Action SUCK_DIRT = new DynamicAction("SUCK");
     public static final String LOCATION_A = "A";
     public static final String LOCATION_B = "B";
+    public static final String LOCATION_C = "C";
+    public static final String LOCATION_D = "D";
 
     public enum LocationState {
         CLEAN, DIRTY
@@ -15,8 +19,8 @@ public class Environment {
     private boolean isDone = false;// all squares are CLEAN
     private Agent agent = null;
 
-    public Environment(LocationState locAState, LocationState locBState) {
-        envState = new EnvironmentState(locAState, locBState);
+    public Environment(LocationState locAState, LocationState locBState, LocationState locCState, LocationState locDState) {
+        envState = new EnvironmentState(locAState, locBState, locCState, locDState);
     }
 
     // add an agent into the enviroment
@@ -36,10 +40,22 @@ public class Environment {
         // TODO
         if (action == Environment.SUCK_DIRT) {
             envState.setLocationState(this.envState.getAgentLocation(), LocationState.CLEAN);
-        } else if (action == Environment.MOVE_RIGHT) {
+        } else if (action == Environment.MOVE_RIGHT && envState.getAgentLocation() == Environment.LOCATION_A) {
             envState.setAgentLocation(Environment.LOCATION_B);
-        } else if (action == Environment.MOVE_LEFT) {
+        } else if (action == Environment.MOVE_LEFT && envState.getAgentLocation() == Environment.LOCATION_B) {
             envState.setAgentLocation(Environment.LOCATION_A);
+        } else if (action == Environment.MOVE_UP && envState.getAgentLocation() == Environment.LOCATION_C) {
+            envState.setAgentLocation(Environment.LOCATION_A);
+        } else if (action == Environment.MOVE_UP && envState.getAgentLocation() == Environment.LOCATION_D){
+            envState.setAgentLocation(Environment.LOCATION_B);
+        } else if (action == Environment.MOVE_DOWN && envState.getAgentLocation() == Environment.LOCATION_A){
+            envState.setAgentLocation(Environment.LOCATION_C);
+        } else if (action == Environment.MOVE_LEFT && envState.getAgentLocation() == Environment.LOCATION_D){
+            envState.setAgentLocation(Environment.LOCATION_C);
+        } else if (action == Environment.MOVE_RIGHT && envState.getAgentLocation() == Environment.LOCATION_C){
+            envState.setAgentLocation(Environment.LOCATION_D);
+        } else if (action == Environment.MOVE_DOWN && envState.getAgentLocation()== Environment.LOCATION_B){
+            envState.setAgentLocation(Environment.LOCATION_D);
         }
         return envState;
     }
