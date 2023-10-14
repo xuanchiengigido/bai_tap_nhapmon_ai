@@ -1,5 +1,3 @@
-package k21;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,7 +9,6 @@ public class NodeUtils {
 			result.add(node.getLabel());
 			Node tmp;
 			while ((tmp = node.getParent()) != null) {
-
 				result.add(tmp.getLabel());
 				node = tmp;
 			}
