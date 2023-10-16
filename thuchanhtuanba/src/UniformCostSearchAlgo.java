@@ -79,13 +79,21 @@ public class UniformCostSearchAlgo implements ISearchAlgo {
                         root.getChildrenNodes()) {
                     child.setParent(root);
                     Node result = execute(child, goal, limitedDepth - 1);
-                     if (result != null) {
+                    if (result != null) {
                         return result;
                     }
                 }
             }
             return null;
         }
+    }
+
+    public Node DeepLimitedSearch(Node root, String goal, int limitedDepth) {
+        for (int i = 0; i <= limitedDepth; i++) {
+            Node result = execute(root, goal, i);
+            if (result != null) return result;
+        }
+        return null;
     }
 
     public static void main(String[] args) {
@@ -109,7 +117,8 @@ public class UniformCostSearchAlgo implements ISearchAlgo {
         nodeE.addEdge(nodeG, 6);
         nodeF.addEdge(nodeG, 1);
         UniformCostSearchAlgo algo1 = new UniformCostSearchAlgo();
-        Node result = algo1.execute(nodeS, "G", 3);
+//        Node result = algo1.execute(nodeS, "G", 3);
+        Node result = algo1.DeepLimitedSearch(nodeS, "G", 2);
         System.out.println("UCS: " + NodeUtils.printPath(result));
     }
 }
