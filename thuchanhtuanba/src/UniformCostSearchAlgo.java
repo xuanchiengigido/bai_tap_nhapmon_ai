@@ -37,15 +37,15 @@ public class UniformCostSearchAlgo implements ISearchAlgo {
         root.setPathCost(0);
         while (!frontiers.isEmpty()) {
             Node current = frontiers.poll();
-            if(current.getLabel().equals(start) && !flag){
+            if (current.getLabel().equals(start) && !flag) {
                 flag = true;
-                for (Node e:
-                     frontiers) {
+                for (Node e :
+                        frontiers) {
                     e.setPathCost(0);
                 }
                 frontiers.clear();
-                for (Node e:
-                     explored) {
+                for (Node e :
+                        explored) {
                     e.setPathCost(0);
                 }
                 explored.clear();
@@ -70,6 +70,24 @@ public class UniformCostSearchAlgo implements ISearchAlgo {
         return null;
     }
 
+    public Node execute(Node root, String goal, int limitedDepth) {
+        if (root.getLabel().equals(goal)) return root;
+        else if (limitedDepth == 0) return null;
+        else {
+            if (limitedDepth != 0) {
+                for (Node child :
+                        root.getChildrenNodes()) {
+                    child.setParent(root);
+                    Node result = execute(child, goal, limitedDepth - 1);
+                     if (result != null) {
+                        return result;
+                    }
+                }
+            }
+            return null;
+        }
+    }
+
     public static void main(String[] args) {
         Node nodeS = new Node("S");
         Node nodeA = new Node("A");
@@ -90,8 +108,8 @@ public class UniformCostSearchAlgo implements ISearchAlgo {
         nodeD.addEdge(nodeH, 7);
         nodeE.addEdge(nodeG, 6);
         nodeF.addEdge(nodeG, 1);
-        ISearchAlgo algo1 = new UniformCostSearchAlgo();
-        Node result = algo1.execute(nodeS,"A", "G");
+        UniformCostSearchAlgo algo1 = new UniformCostSearchAlgo();
+        Node result = algo1.execute(nodeS, "G", 3);
         System.out.println("UCS: " + NodeUtils.printPath(result));
     }
 }
