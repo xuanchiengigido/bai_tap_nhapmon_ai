@@ -14,10 +14,10 @@ public class DepthFirstSearchAlgo implements ISearchAlgo {
             else {
                 for (Node child :
                         current.getChildrenNodes()) {
-                    if (!frontiers.contains(child) && !explored.contains(child)) {
+//                    if (!frontiers.contains(child) && !explored.contains(child)) {
                         frontiers.push(child);
                         child.setParent(current);
-                    }
+//                    }
                 }
             }
         }
@@ -43,10 +43,10 @@ public class DepthFirstSearchAlgo implements ISearchAlgo {
             } else {
                 for (Node child :
                         current.getChildrenNodes()) {
-                    if (!frontiers.contains(child) && !explored.contains(child)) {
+//                    if (!frontiers.contains(child) && !explored.contains(child)) {
                         frontiers.push(child);
                         child.setParent(current);
-                    }
+//                    }
                 }
             }
         }

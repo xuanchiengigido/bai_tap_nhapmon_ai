@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class BreadthFirstSearchAlgo implements ISearchAlgo {
@@ -16,10 +15,10 @@ public class BreadthFirstSearchAlgo implements ISearchAlgo {
             else {
                 for (Node child :
                         current.getChildrenNodes()) {
-                    if (!explored.contains(child) && !frontier.contains(child)) {
+//                    if (!explored.contains(child) && !frontier.contains(child)) {
                         frontier.add(child);
                         child.setParent(current);
-                    }
+//                    }
                 }
             }
         }
@@ -46,10 +45,10 @@ public class BreadthFirstSearchAlgo implements ISearchAlgo {
             }
             for (Node child :
                     current.getChildrenNodes()) {
-                if (!frontier.contains(child) && !explored.contains(child)) {
+//                if (!frontier.contains(child) && !explored.contains(child)) {
                     frontier.add(child);
                     child.setParent(current);
-                }
+//                }
             }
         }
         return null;
