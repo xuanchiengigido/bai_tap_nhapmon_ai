@@ -1,5 +1,3 @@
-package lab4.inform.student;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

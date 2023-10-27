@@ -1,5 +1,3 @@
-package lab4.inform.student;
-
 public class TestAStar {
 	public static void main(String[] args) {
 		Node s = new Node("S", 6);
@@ -22,8 +20,8 @@ public class TestAStar {
 		f.addEdge(g, 1);
 		e.addEdge(g, 2);
 		
-//		IInformedSearchAlgo aStar = new AStarSearchAlgo();
-//		Node res = aStar.execute(s, g.getLabel());
-//		System.out.println(NodeUtils.printPath(res));
+		IInformedSearchAlgo aStar = new GreedyBestFirstSearchAlgo();
+		Node res = aStar.execute(s, g.getLabel());
+		System.out.println(NodeUtils.printPath(res));
 	}
 }

@@ -1,5 +1,3 @@
-package lab4.inform.student;
-
 public class Edge {
 	private Node begin;
 	private Node end;
