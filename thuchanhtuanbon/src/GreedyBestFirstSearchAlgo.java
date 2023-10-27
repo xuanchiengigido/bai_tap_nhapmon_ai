@@ -19,6 +19,7 @@ public class GreedyBestFirstSearchAlgo implements IInformedSearchAlgo {
                     child.setParent(current);
                 }
             }
+            System.out.println(frontiers);
         }
         return null;
     }

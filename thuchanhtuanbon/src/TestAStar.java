@@ -20,6 +20,7 @@ public class TestAStar {
 		f.addEdge(g, 1);
 		e.addEdge(g, 2);
 		
+//		IInformedSearchAlgo aStar = new AStarSearchAlgo();
 		IInformedSearchAlgo aStar = new GreedyBestFirstSearchAlgo();
 		Node res = aStar.execute(s, g.getLabel());
 		System.out.println(NodeUtils.printPath(res));
