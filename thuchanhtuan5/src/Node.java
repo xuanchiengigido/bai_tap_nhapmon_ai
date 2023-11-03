@@ -1,5 +1,3 @@
-package puzzle_8.student;
-
 import java.util.Arrays;
 
 public class Node {

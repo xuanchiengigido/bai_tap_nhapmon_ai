@@ -1,5 +1,3 @@
-package puzzle_8.student;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,11 +10,11 @@ public class TestNode {
 		Node initialState = p.getInitialState();
 		Node tmp = new Node(initialState);
 		System.out.println(initialState.equals(tmp));
-//		Node goalState = p.getGoalState();
-//		System.out.println(p.getInitialState());
+		Node goalState = p.getGoalState();
+		System.out.println(p.getInitialState());
 		System.out.println("H: "+initialState.getH());
 //		System.out.println(Arrays.toString(initialState.getWhiteTilePosition()));
-//		System.out.println(p.getGoalState());
+		System.out.println(p.getGoalState());
 		Node re = p.moveWhiteTile(initialState, 'r');
 //
 		System.out.println(re);
