@@ -140,7 +140,6 @@ public class Puzzle {
 
     public List<Node> getSuccessors(Node currentState) {
         ArrayList<Node> result = new ArrayList<Node>();
-
         for (char operator : operators) {
             Node tmp = moveWhiteTile(currentState, operator);
             if (tmp != null) {

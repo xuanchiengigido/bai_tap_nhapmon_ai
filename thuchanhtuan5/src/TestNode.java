@@ -23,7 +23,9 @@ public class TestNode {
 //		System.out.println(Arrays.toString(re.getWhiteTilePosition()));
 //		System.out.println(p.computeH(init, goal));
 
-		// System.out.println(p.getInitialState());
+
+
+		 System.out.println(p.getInitialState());
 		// System.out.println(p.getGoalState());
 		//
 		// List<Node> children = p.getSuccessors(initialState);
